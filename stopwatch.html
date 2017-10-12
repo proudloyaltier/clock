@@ -6,9 +6,13 @@
   </head>
   <body>
     <ul>
-      <li><a href="index.html">Clock</a></li>
-      <li><a class="active" href="stopwatch.html">Stopwatch</a></li>
+      <li><a class="active" href="index.html">Clock</a></li>
+      <li><a href="stopwatch.html">Stopwatch</a></li>
     </ul>
+    <h1 id="clock-disp"></h1>
+    <div style="text-align: center">
+      <button id="start-stop-button" onclick="startWatch()" class="btn-primary">Start</button>
+    </div>
   </body>
   <style>
     .btn-primary {
@@ -59,5 +63,15 @@
     }
   </style>
   <script>
+    startStopWatch() {
+      if(localStorage.startStop == "start") {
+        localStorage.startStop == "stop";
+        document.getElementById("start-stop-button").innerHTML = "Start";
+      } else {
+        localStorage.startStop == "stop";
+        document.getElementById("start-stop-button").innerHTML = "Stop";
+      }
+      document.getElementById("clock-disp").innerHTML = localStorage.stopwatchTime;
+    }
   </script>
 </html>
