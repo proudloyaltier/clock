@@ -70,6 +70,14 @@
     
     var hour1;
     
+        function twelveH() {
+      localStorage.usuk = 'us';
+    }
+    
+    function twentyfourH() {
+      localStorage.usuk = 'uk';
+    }
+    
     if (localStorage.usuk == 'us') {
       if (new Date().getHours() > 12) {
         hour1 = new Date().getHours() - 12;
@@ -80,13 +88,7 @@
       hour1 = new Date().getHours();
     }
     
-    function twelveH() {
-      localStorage.usuk = 'us';
-    }
-    
-    function twentyfourH() {
-      localStorage.usuk = 'uk';
-    }
+
     setInterval(function findTime() {
      document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
     }, 0);
