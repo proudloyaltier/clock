@@ -78,7 +78,11 @@
       localStorage.usuk = 'uk';
     }
     
-    if (localStorage.usuk == 'us') {
+
+    
+
+    setInterval(function findTime() {
+          if (localStorage.usuk == 'us') {
       if (new Date().getHours() > 12) {
         hour1 = new Date().getHours() - 12;
       } else {
@@ -87,9 +91,6 @@
     } else {
       hour1 = new Date().getHours();
     }
-    
-
-    setInterval(function findTime() {
      document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
     }, 0);
   </script>
