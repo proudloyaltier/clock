@@ -10,8 +10,8 @@
     </ul>
     <h1 id="clock-disp"></h1>
     <div style="align:center;">
-      <button onclick()="localStorage.usuk = 'uk'" class="btn-primary">24 hour time</button>
-      <button onclick()="localStorage.usuk = 'us'" class="btn-primary">12 hour time</button>
+      <button onclick()="twentyfourH()" class="btn-primary">24 hour time</button>
+      <button onclick()="twelveH()" class="btn-primary">12 hour time</button>
     </div>
   </body>
   <style>
@@ -67,6 +67,7 @@
     }
   </style>
   <script>
+    
     var hour1;
     
     if (localStorage.usuk == 'us') {
@@ -79,6 +80,13 @@
       hour1 = new Date().getHours();
     }
     
+    function twelveH() {
+      localStorage.usuk = 'us';
+    }
+    
+    function twentyfourH() {
+      localStorage.usuk = 'uk';
+    }
     setInterval(function findTime() {
      document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
     }, 0);
