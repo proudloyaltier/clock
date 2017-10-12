@@ -6,11 +6,29 @@
   <body>
     <ul>
       <li><a class="active" href="index.html">Clock</a></li>
-      <li><a href="#news">News</a></li>
+      <li><a href="stopwatch.html">Stopwatch</a></li>
     </ul>
     <h1 id="clock-disp"></h1>
+    <button onclick()="localStorage.usuk = 'uk'" class="btn-primary">24 hour time</button>
+    <button onclick()="localStorage.usuk = 'us'" class="btn-primary">12 hour time</button>
   </body>
   <style>
+    .btn-primary {
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+      background-color: #4CAF50;
+    }
+    
+    .btn-primary:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50; /* Green */
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+    }
+    
     #clock-disp {
       text-align: center;
       color: darkBlue;
