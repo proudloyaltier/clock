@@ -64,12 +64,16 @@
   </style>
   <script>
     startStopWatch() {
-      if(localStorage.startStop == "start") {
-        localStorage.startStop == "stop";
-        document.getElementById("start-stop-button").innerHTML = "Start";
-      } else {
-        localStorage.startStop == "start";
+      if(localStorage.startStop == 'stopped') {
+        localStorage.startStop == 'started';
         document.getElementById("start-stop-button").innerHTML = "Stop";
+        setInterval(function stpwtch() {localStorage.stpwtchTime = localStorage.stpwtchTime + 0.01;
+                                        document.getElementById("clock-disp").innerHTML = localStorage.stpwtchTime;}, 10)
+      } else {
+        localStorage.stpwtchTime = 0;
+        document.getElementById("clock-disp").innerHTML = localStorage.stpwtchTime;
+        localStorage.startStop = 'stopped';
+        document.getElementById("start-stop-button").innerHTML = "Start";
       }
     }
   </script>
