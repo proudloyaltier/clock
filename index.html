@@ -78,7 +78,6 @@
       localStorage.usuk = 'uk';
     }
     
-    setInterval(function usukReload() {
         if (localStorage.usuk == 'us') {
         if (new Date().getHours() > 12) {
           hour1 = new Date().getHours() - 12;
@@ -88,12 +87,20 @@
       } else {
         hour1 = new Date().getHours();
       }
-    }, 0);
 
-    
-
-    setInterval(function findTime() {
+    function findTime() {
+      if (localStorage.usuk == 'us') {
+        if (new Date().getHours() > 12) {
+          hour1 = new Date().getHours() - 12;
+        } else {
+          hour1 = new Date().getHours();
+        }
+      } else {
+        hour1 = new Date().getHours();
+      }
      document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
-    }, 0);
+    }
+
+    setInterval(findTime(), 0);
   </script>
 </html>
