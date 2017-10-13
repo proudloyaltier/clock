@@ -9,8 +9,12 @@
       <li><a class="active" href="index.html">Clock</a></li>
       <li><a href="stopwatch.html">Stopwatch</a></li>
     </ul>
-<body> <section id="stopWatch"> <p id="timer"> Time : 00:00:00 </p> <button id="start"> Start </button> <button id="stop"> Stop </button> <p id="fulltime"> </p> </section> </body> 
-  
+<body onload="show();">
+	<div>Time: <span id="time"></span></div>
+	<input type="button" value="start" onclick="start();">
+	<input type="button" value="stop" onclick="stop();">
+	<input type="button" value="reset" onclick="reset()">
+    </body>
   <style>
     .btn-primary {
       border-radius: 4px;
