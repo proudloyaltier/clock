@@ -69,10 +69,14 @@
    localStorage.timeRemaining = Number(localStorage.timeRemaining)+1
  }
     
-    function startWatch() {
-      document.getElementById('time') = localStorage.timeRemaining
+    function setTime() {
+      document.getElementById('time').innerHTML = localStorage.timeRemaining
       localStorage.timeRemaining = 0
       setInterval(watch, 60)
+    }
+    
+    function watch() {
+      setInterval(setTime, 60)
     }
   </script>
 </html>
