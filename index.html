@@ -40,6 +40,7 @@
       color: darkBlue;
       fontWeight: bold;
       font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
     }
     
     ul {
@@ -47,7 +48,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    //background-color: #333;
+    background-color: #333;
     }
     
     li {
@@ -61,7 +62,7 @@
         text-decoration: none;
     }
     li a:hover {
-        //background-color: #111;
+        background-color: #111;
     }
   </style>
   <script>
@@ -70,14 +71,6 @@
     
     var hour1;
     
-    function findColor() {
-      if(localStorage.color == 'undefined')
-        localStorage.color = '#333';
-        localStorage.hoverColor = '#111'
-    } else {
-      document.getElementById("navbar").style.color = localStorage.color;
-      document.getElementById("li-a:hover").style.color = localStorage.hoverColor;
-    }
         function twelveH() {
       localStorage.usuk = 'us';
       location.reload();
