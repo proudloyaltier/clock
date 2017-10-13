@@ -68,13 +68,13 @@
             output = h[0]+':'+m[0]+m[1]+':'+s[0]+s[1]+'.'+ms[0]+ms[1];
             document.getElementById("clock-disp").innerHTML = output;
         };
-        function start(){
+        this.start = function(){
             started = true;
         };
-        function stop(){
+        this.stop = function(){
             started = false;
         };
-        function reset(){
+        this.reset = function(){
             remove(this);
             new StopWatch();
         }
