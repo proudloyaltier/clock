@@ -9,28 +9,8 @@
       <li><a class="active" href="index.html">Clock</a></li>
       <li><a href="stopwatch.html">Stopwatch</a></li>
     </ul>
-    <h1 id="clock-disp"></h1>
-    <div style="text-align: center">
-      <h1 id='time'>Loading...</h1>
-      <button id="start-stop-button" onclick="startWatch()" class="btn-primary">Start</button>
-    </div>
-    
-    <script>
-    function watch() {
-      document.getElementById('time').innerHTML = localStorage.timeRemaining;
-      localStorage.timeRemaining = Number(localStorage.timeRemaining) + 1;
-    }
-    
-    function setTime() {
-      localStorage.timeRemaining = 0;
-    }
-    
-    function startwatch() {
-      setTime();
-      setInterval(watch, 1000);
-    }
-    </script>
-  </body>
+<body> <section id="stopWatch"> <p id="timer"> Time : 00:00:00 </p> <button id="start"> Start </button> <button id="stop"> Stop </button> <p id="fulltime"> </p> </section> </body> 
+  
   <style>
     .btn-primary {
       border-radius: 4px;
