@@ -12,7 +12,7 @@
     </ul>
     <h1 id="clock-disp"></h1>
     <div style="text-align: center">
-      <h2> "Current:" </h2> + localStorage.timeRemaining<br>
+      <h1 id="time">Loading...</h1>
       <button id="start-stop-button" onclick="startWatch()" class="btn-primary">Start</button>
     </div>
   </body>
@@ -70,6 +70,7 @@
  }
     
     function startWatch() {
+      document.getElementById('time').value = localStorage.timeRemaining
       localStorage.timeRemaining = 0
       setInterval(watch, 60)
     }
