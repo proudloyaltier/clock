@@ -10,6 +10,12 @@
       <li><a href="stopwatch.html">Stopwatch</a></li>
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
+	  
+    <h1 id="clock-disp"></h1>
+		
+		<button onclick="start()" class="btn-primary">Start</button>
+    <button onclick="stop()" class="btn-primary">Stop</button>
+		<button onclick="reset()" class="btn-primary">Reset</button>
 <center>
 <script>
 	(function(){
@@ -58,12 +64,9 @@
                 if(m[0]>5){m[0]=0;h[0]++;}
                 if(h[0]>23){ms=[0,0];s=[0,0];m=[0,0];h[0]=0;}
             }
-            ctx.font = 'bold 50px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = 'DarkBlue';
+		
             output = h[0]+':'+m[0]+m[1]+':'+s[0]+s[1]+'.'+ms[0]+ms[1];
-            ctx.fillText(output,W/2,20);
+            document.getElementById("clock-disp").innerHTML = output;
         };
         this.start = function(){
             started = true;
@@ -77,10 +80,10 @@
         }
         add(this);
     };
-    function Button(x,y,t){
+    /*function Button(x,y,t){
         var x = x, y = y, w = 60, h = 30, t = t;
         this.run = function(){
-            ctx.font = 'bold 16px monospace';
+            ctx.font = 'bold 16px Arial';
             ctx.textBaseline = 'middle';
             ctx.textAlign = 'center';
             ctx.beginPath();//begin mouse detection
@@ -106,12 +109,12 @@
             ctx.fillText(t,x+w/2,y+h/2);
         };
         add(this);
-    };
+    };*/
     (function init(){
         new StopWatch();
-        new Button(0,50,'START');
-        new Button(60,50,'STOP');
-        new Button(120,50,'RESET');
+        //new Button(0,50,'START');
+        //new Button(60,50,'STOP');
+        //new Button(120,50,'RESET');
        // new Button(180,50,'CLOSE');
     })();
     (function loop(){
