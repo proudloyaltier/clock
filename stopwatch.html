@@ -65,18 +65,18 @@
     }
   </style>
   <script>
- function watch() {
-   localStorage.timeRemaining = Number(localStorage.timeRemaining)+1
- }
+    function watch() {
+      document.getElementById('time').innerHTML = localStorage.timeRemaining;
+      localStorage.timeRemaining = Number(localStorage.timeRemaining) + 1;
+    }
     
     function setTime() {
-      document.getElementById('time').innerHTML = localStorage.timeRemaining
-      localStorage.timeRemaining = 0
+      localStorage.timeRemaining = 0;
     }
     
     function startwatch() {
-      setInterval(setTime, 60)
-      setInterval(setTime, 60)
+      setTime();
+      setInterval(watch, 1000);
     }
   </script>
 </html>
