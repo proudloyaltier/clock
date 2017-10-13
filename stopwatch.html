@@ -12,12 +12,10 @@
     </ul>
 	  
     <h1 id="clock-disp"></h1>
-	  <center>
 		
-		<button onclick="start()" class="btn-primary">Start</button>
+    <button onclick="start()" class="btn-primary">Start</button>
     <button onclick="stop()" class="btn-primary">Stop</button>
-		<button onclick="reset()" class="btn-primary">Reset</button>
-	  </center>
+    <button onclick="reset()" class="btn-primary">Reset</button>
 <center>
 <script>
 	(function(){
@@ -70,13 +68,13 @@
             output = h[0]+':'+m[0]+m[1]+':'+s[0]+s[1]+'.'+ms[0]+ms[1];
             document.getElementById("clock-disp").innerHTML = output;
         };
-        this.start = function(){
+        function start(){
             started = true;
         };
-        this.stop = function(){
+        function stop(){
             started = false;
         };
-        this.reset = function(){
+        function reset(){
             remove(this);
             new StopWatch();
         }
