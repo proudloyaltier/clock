@@ -4,10 +4,10 @@
     <title>Clock</title>
   </head>
   <body>
-    <ul>
-      <li><a class="active" href="index.html">Clock</a></li>
-      <li><a href="stopwatch.html">Stopwatch</a></li>
-      <li><a href="settings.html">Settings</a></li>
+    <ul id="navbar">
+      <li id="li-a"><a class="active" href="index.html">Clock</a></li>
+      <li id="li-a"><a href="stopwatch.html">Stopwatch</a></li>
+      <li id="li-a"><a href="settings.html">Settings</a></li>
     </ul>
     <h1 id="clock-disp"></h1>
     <div style="text-align: center">
@@ -47,8 +47,9 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    //background-color: #333;
     }
+    
     li {
         float: left;
     }
@@ -60,13 +61,23 @@
         text-decoration: none;
     }
     li a:hover {
-        background-color: #111;
+        //background-color: #111;
     }
   </style>
   <script>
     
+    
+    
     var hour1;
     
+    function findColor() {
+      if(localStorage.color == 'undefined')
+        localStorage.color = '#333';
+        localStorage.hoverColor = '#111'
+    } else {
+      document.getElementById("navbar").style.color = localStorage.color;
+      document.getElementById("li-a:hover").style.color = localStorage.hoverColor;
+    }
         function twelveH() {
       localStorage.usuk = 'us';
       location.reload();
