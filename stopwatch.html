@@ -70,7 +70,7 @@
  }
     
     function startWatch() {
-      document.getElementById('time').value = localStorage.timeRemaining
+      document.getElementById('time') = localStorage.timeRemaining
       localStorage.timeRemaining = 0
       setInterval(watch, 60)
     }
