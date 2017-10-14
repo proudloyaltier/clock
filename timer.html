@@ -25,9 +25,13 @@
     
     function timedCount() {
         
-        if(c == 60) {
-          c = 0;
-          m ++;
+        if(c == 0 && m == 0) {
+          alert('alarm off');
+        }
+        
+        if(c == -1) {
+          c = 59;
+          m = m - 1;
         }
         
         if(c < 10) {
@@ -61,6 +65,8 @@
       document.getElementById("title").innerHTML = '0:00';
       stopCount();
     }
+    
+    
   </script>
     <style>
     .btn-primary {
