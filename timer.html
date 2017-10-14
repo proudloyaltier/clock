@@ -29,8 +29,10 @@
     function startTimer() {
       m = prompt('Minutes');
       c = prompt('Seconds');
+      
       document.getElementById("timerDiv").style.visibility = "visible";
       document.getElementById("startTimerButton").style.visibility = "hidden";
+      
       if(c < 10) {
           var innerHtml1 = m + ':0' + c;
           document.getElementById("clock-disp").innerHTML = innerHtml1;
@@ -49,6 +51,7 @@
         
         if(c == 0 && m == 0) {
           alert('alarm off');
+          window.reload();
         }
         
         if(c == -1) {
@@ -86,6 +89,7 @@
       document.getElementById("clock-disp").innerHTML = '0:00';
       document.getElementById("title").innerHTML = '0:00';
       stopCount();
+      location.reload();
     }
     
     
