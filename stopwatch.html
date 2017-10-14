@@ -32,11 +32,13 @@
         }
         
         if(c < 10) {
-          document.getElementById("clock-disp").innerHTML = m + ':0' + c;
-          document.getElementById("title").innerHTML = m + ':0' + c;
+          var innerHtml1 = m + ':0' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml1;
+          document.getElementById("title").innerHTML = innerHtml1;
         } else {
-          document.getElementById("clock-disp").innerHTML = m + ':' + c;
-          document.getElementById("title").innerHTML = m + ':' + c;
+          var innerHtml2 = m + ':' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml2;
+          document.getElementById("title").innerHTML = innerHtml2;
         }
         
         
