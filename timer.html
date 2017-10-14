@@ -30,6 +30,13 @@
       m = prompt('Minutes');
       c = prompt('Seconds');
       
+      if(m == '') {
+        m = 0;
+      }
+      
+      if(c == '') {
+        c = 0;
+      }
       document.getElementById("timerDiv").style.visibility = "visible";
       document.getElementById("startTimerButton").style.visibility = "hidden";
       
