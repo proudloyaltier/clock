@@ -18,7 +18,7 @@
 <center>
   </body>
   <script>
-    var m = 0;
+    var m = 5;
     var c = 0;
     var t;
     var timer_is_on = 0;
@@ -31,26 +31,24 @@
         }
         
         if(c < 10) {
-          document.getElementById("clock-disp").innerHTML = m + ':0' + c;
-          document.getElementById("title").innerHTML = m + ':0' + c;
+          var innerHtml1 = m + ':0' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml1;
+          document.getElementById("title").innerHTML = innerHtml1;
         } else {
-          document.getElementById("clock-disp").innerHTML = m + ':' + c;
-          document.getElementById("title").innerHTML = m + ':' + c;
+          var innerHtml2 = m + ':' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml2;
+          document.getElementById("title").innerHTML = innerHtml2;
         }
         
-        
-        document.getElementById("clock-disp").innerHTML = c;
-        c = c + 1;
+        c = c - 1;
         t = setTimeout(function(){ timedCount() }, 1000);
     }
-
     function startCount() {
         if (!timer_is_on) {
             timer_is_on = 1;
             timedCount();
         }
     }
-
     function stopCount() {
         clearTimeout(t);
         timer_is_on = 0;
@@ -58,7 +56,9 @@
     
     function resetCount() {
       c = 0;
-      document.getElementById("clock-disp").innerHTML = c;
+      m = 0;
+      document.getElementById("clock-disp").innerHTML = '0:00';
+      document.getElementById("title").innerHTML = '0:00';
       stopCount();
     }
   </script>
@@ -167,4 +167,3 @@
   </style>
   </html>
 </html>
-  
