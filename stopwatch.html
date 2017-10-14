@@ -2,143 +2,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clock</title>
+    <title id="title">Clock</title>
   </head>
-  <body>
+   <body>
     <ul>
       <li><a class="active" href="index.html">Clock</a></li>
       <li><a href="stopwatch.html">Stopwatch</a></li>
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
-	  
-    <h1 id="clock-disp"></h1>
-    <center>	
-	    <!--<button onclick="Start()" class="btn-primary">Start</button>
-	    <button onclick="Stop()" class="btn-primary">Stop</button>
-	    <button onclick="Reset()" class="btn-primary">Reset</button>-->
+    <h1 id="clock-disp">0:00</h1>
+    <center>
+    <button onclick="startCount()" class="btn-primary">Start</button>
+    <button onclick="stopCount()" class="btn-primary">Stop</button>
+    <button onclick="resetCount()" class="btn-primary">Reset</button>
     </center>
 <center>
-<script>
-	(function(){
-    /*HTML5 Stop Watch by Braden Best aka B1KMusic*/
-    /*You can use this script anywhere and it will work*/
-    var cvs,ctx,W,H,mem,StopWatch,Button,mouse;
-    mem = {};
-    mouse = {x:-10,y:-10,down:false};
-    cvs = document.createElement('canvas');
-    cvs.width = W = 240;
-    cvs.height = H = 80;
-    (function appendCanvas(){
-        if(document.body)document.body.appendChild(cvs);
-        else setTimeout(appendCanvas,100);
-    })();
-    ctx = cvs.getContext('2d');
-    function add(o){
-        o.id = Math.floor(Math.random()*10000).toString(36);
-        for(var i in mem){
-            if(mem.hasOwnProperty(i) && i == o.id){
-                add(o);
-                return false;
-            }
+  </body>
+  <script>
+    var m = 0;
+    var c = 0;
+    var t;
+    var timer_is_on = 0;
+    
+    function timedCount() {
+        
+        if(c == 60) {
+          c = 0;
+          m ++;
         }
-        mem[o.id] = o;
-    };
-    function remove(o){
-        delete mem[o.id];
-    };
-    function StopWatch(){
-        var started = false,
-            time = [[0],[0,0],[0,0],[0,0]];
-        this.run = function(){
-            var output,
-                h = time[0],
-                m = time[1],
-                s = time[2],
-                ms = time[3];
-            if(started){
-                ms[1]++;
-                if(ms[1]>9){ms[1]=0;ms[0]++;}
-                if(ms[0]>9){ms[0]=0;s[1]++;}
-                if(s[1]>9){s[1]=0;s[0]++;}
-                if(s[0]>5){s[0]=0;m[1]++;}
-                if(m[1]>9){m[1]=0;m[0]++;}
-                if(m[0]>5){m[0]=0;h[0]++;}
-                if(h[0]>23){ms=[0,0];s=[0,0];m=[0,0];h[0]=0;}
-            }
-		
-            output = h[0]+':'+m[0]+m[1]+':'+s[0]+s[1]+'.'+ms[0]+ms[1];
-            document.getElementById("clock-disp").innerHTML = output;
-        };
-        this.start = function(){
-            started = true;
-        };
-        this.stop = function(){
-            started = false;
-        };
-        this.reset = function(){
-            remove(this);
-            new StopWatch();
+        
+        if(c < 10) {
+          document.getElementById("clock-disp").innerHTML = m + ':0' + c;
+          document.getElementById("title").innerHTML = m + ':0' + c;
+        } else {
+          document.getElementById("clock-disp").innerHTML = m + ':' + c;
+          document.getElementById("title").innerHTML = m + ':' + c;
         }
-	
-        add(this);
-    };
-    function Button(x,y,t){
-        var x = x, y = y, w = 60, h = 30, t = t;
-        this.run = function(){
-            ctx.font = 'bold 16px Arial';
-            ctx.textBaseline = 'middle';
-            ctx.textAlign = 'center';
-            ctx.beginPath();//begin mouse detection
-            ctx.rect(x,y,w,h);
-            if(ctx.isPointInPath(mouse.x,mouse.y)){
-                ctx.fillStyle = '#eee';
-                if(mouse.down){
-                    for(var i in mem){
-                        if(mem[i].constructor.name == 'StopWatch'){
-                            if(t == 'START')mem[i].start();
-                            if(t == 'STOP')mem[i].stop();
-                            if(t == 'RESET')mem[i].reset();
-                            if(t == 'CLOSE')document.body.removeChild(cvs);
-                        }
-                    }
-                }
-            }else{
-                ctx.fillStyle = '#fff';
-            }
-            ctx.closePath();//end mouse detection
-            ctx.fillRect(x,y,w,h);
-            ctx.fillStyle = '#000';
-            ctx.fillText(t,x+w/2,y+h/2);
-        };
-        add(this);
-    };
-    (function init(){
-        new StopWatch();
-        new Button(0,50,'START');
-        new Button(60,50,'STOP');
-        new Button(120,50,'RESET');
-        new Button(180,50,'CLOSE');
-    })();
-    (function loop(){
-        var a
-        ctx.clearRect(0,0,W,H);
-        for(a in mem)if(mem.hasOwnProperty(a))mem[a].run();
-        setTimeout(loop,1000/100);
-    })();
-    cvs.onmousemove = function(e){
-        mouse.x = (e.pageX||e.clientX||e.offsetX) - cvs.offsetLeft;
-        mouse.y = (e.pageY||e.clientY||e.offsetY) - cvs.offsetTop;
-        return false;
-    };
-    cvs.onmousedown = cvs.onmouseup = function(e){
-        mouse.down = e.type == 'mousedown';
-        return false;
-    };
-})();
-	
-	  </script>
-	  </center>
-  <style>
+        
+        
+        document.getElementById("clock-disp").innerHTML = c;
+        c = c + 1;
+        t = setTimeout(function(){ timedCount() }, 1000);
+    }
+    function startCount() {
+        if (!timer_is_on) {
+            timer_is_on = 1;
+            timedCount();
+        }
+    }
+    function stopCount() {
+        clearTimeout(t);
+        timer_is_on = 0;
+    }
+    
+    function resetCount() {
+      c = 0;
+      document.getElementById("clock-disp").innerHTML = c;
+      stopCount();
+    }
+  </script>
+    <style>
     .btn-primary {
       border-radius: 4px;
       padding: 12px 28px;
@@ -147,7 +70,6 @@
       color: white;
       border: 2px solid #4CAF50;
       text-align: center;
-      font-family: Arial, Helvetica, sans-serif;
     }
     
     .btn-primary:hover {
@@ -157,7 +79,6 @@
       border-radius: 4px;
       padding: 12px 28px;
       font-size: 12px;
-      font-family: Arial, Helvetica, sans-serif;
     }
     
     #clock-disp {
@@ -165,6 +86,7 @@
       color: darkBlue;
       fontWeight: bold;
       font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
     }
     
     ul {
@@ -174,6 +96,7 @@
     overflow: hidden;
     background-color: #333;
     }
+    
     li {
         float: left;
     }
@@ -188,4 +111,58 @@
         background-color: #111;
     }
   </style>
+  </html>
+  
+  </script>
+    <style>
+    .btn-primary {
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: 2px solid #4CAF50;
+      text-align: center;
+    }
+    
+    .btn-primary:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50; /* Green */
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+    }
+    
+    #clock-disp {
+      text-align: center;
+      color: darkBlue;
+      fontWeight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+    }
+    
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover {
+        background-color: #111;
+    }
+  </style>
+  </html>
 </html>
