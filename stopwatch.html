@@ -11,7 +11,7 @@
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
     <center>
-	    <h1 class="stopwatch"></h1>
+    <h1 class="stopwatch"></h1>
     <ul class="results"></ul>
 	    <button class="btn-primary" onClick="stopwatch.start();">Start</button>
 	     <button class="btn-primary" onClick="stopwatch.stop();">Stop</button>
@@ -222,6 +222,13 @@ let stopwatch = new Stopwatch(
         background-color: #111;
     }
 	     #stopwatch {
+      text-align: center;
+      color: darkBlue;
+      fontWeight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 60px;
+    }
+	     #results {
       text-align: center;
       color: darkBlue;
       fontWeight: bold;
