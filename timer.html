@@ -3,16 +3,18 @@
   <head>
     <title>Clock</title>
   </head>
-  <body>
+   <body>
     <ul>
       <li><a class="active" href="index.html">Clock</a></li>
       <li><a href="stopwatch.html">Stopwatch</a></li>
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
     <h1 id="clock-disp">0:00</h1>
+    <center>
     <button onclick="startCount()" class="btn-primary">Start</button>
-    <button onclick="stopCount" class="btn-primary">Stop</button>
-    <button onclick="resetCount" class="btn-primary">Reset</button>
+    <button onclick="stopCount()" class="btn-primary">Stop</button>
+    <button onclick="resetCount()" class="btn-primary">Reset</button>
+    </center>
 <center>
   </body>
   <script>
@@ -21,20 +23,21 @@
     var t;
     var timer_is_on = 0;
     
-    
-    
     function timedCount() {
-        if(c < 10) {
-          document.getElementById("clock-disp").value = m + ':0' + c;
-        } else {
-          document.getElementById("clock-disp").value = m + ':' + c;
-        }
         
-        if(c = 60) {
+        if(c == 60) {
           c = 0;
-          m = 1;
+          m ++;
         }
         
+        if(c < 10) {
+          document.getElementById("clock-disp").innerHTML = m + ':0' + c;
+        } else {
+          document.getElementById("clock-disp").innerHTML = m + ':' + c;
+        }
+        
+        
+        document.getElementById("clock-disp").innerHTML = c;
         c = c + 1;
         t = setTimeout(function(){ timedCount() }, 1000);
     }
@@ -53,6 +56,8 @@
     
     function resetCount() {
       c = 0;
+      document.getElementById("clock-disp").innerHTML = c;
+      stopCount();
     }
   </script>
     <style>
@@ -106,4 +111,58 @@
     }
   </style>
   </html>
+  
+  </script>
+    <style>
+    .btn-primary {
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: 2px solid #4CAF50;
+      text-align: center;
+    }
+    
+    .btn-primary:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50; /* Green */
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 12px;
+    }
+    
+    #clock-disp {
+      text-align: center;
+      color: darkBlue;
+      fontWeight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+    }
+    
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover {
+        background-color: #111;
+    }
+  </style>
+  </html>
+</html>
   
