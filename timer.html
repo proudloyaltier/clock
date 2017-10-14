@@ -9,19 +9,29 @@
       <li><a href="stopwatch.html">Stopwatch</a></li>
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
+    <button id="startTimerButton" onclick="startTimer()" class="btn-primary">Start a Timer</button>
     <div id="timerDiv">
-    <h1 id="clock-disp">0:00</h1>
-    <center>
-    <button onclick="startCount()" class="btn-primary">Start</button>
-    <button onclick="stopCount()" class="btn-primary">Stop</button>
-    <button onclick="resetCount()" class="btn-primary">Reset</button>
-    </center>
-     </div>
+      <h1 id="clock-disp">0:00</h1>
+      <center>
+        <button onclick="startCount()" class="btn-primary">Start</button>
+        <button onclick="stopCount()" class="btn-primary">Stop</button>
+        <button onclick="resetCount()" class="btn-primary">Reset</button>
+      </center>
+    </div>
 <center>
   </body>
   <script>
-    var m = 5;
-    var c = 0;
+    var c;
+    var m;
+    document.getElementById("timerDiv").style.visibility = "hidden";
+    
+    function startTimer() {
+      c = prompt('seconds');
+      m = prompt('minutes');
+      document.getElementById("timerDiv").style.visibility = "visible";
+      document.getElementById("startTimerButton").style.visibility = "hidden";
+    }
+    
     var t;
     var timer_is_on = 0;
     
