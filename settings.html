@@ -11,7 +11,14 @@
       <li id="li-a"><a href="timer.html">Timer</a></li>
       <li id="li-a"><a href="settings.html">Settings</a></li>
     </ul>
-    <h1>Settings</h1>
+    <h1>Settings</h1><br>
+    <div class="w3-dropdown-hover w3-center">
+      <button id="2412dropdown" class="btn-primary"></button>
+      <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+        <button onclick="time24" class="w3-bar-item w3-button">24 hour time</button>
+        <button onclick="time12" class="w3-bar-item w3-button">12 hour time</button>
+      </div>
+    </div>
   </body>
   <style>
     .btn-primary {
@@ -71,6 +78,18 @@
     }
   </style>
   <script>
+    if(localStorage.usuk == 'us') {
+      document.getElementById("2412dropdown").innerHTML = '12 hour time';
+    } else {
+      document.getElementById("2412dropdown").innerHTML = '24 hour time';
+    }
     
+    function time12() {
+      localStorage.usuk = 'us';
+    }
+    
+    function time24() {
+      localStorage.usuk = 'uk';
+    }
   </script>
 </html>
