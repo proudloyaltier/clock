@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clock</title>
+    <title id="title">Clock</title>
   </head>
    <body>
     <ul>
@@ -32,8 +32,10 @@
         
         if(c < 10) {
           document.getElementById("clock-disp").innerHTML = m + ':0' + c;
+          document.getElementById("title").innerHTML = m + ':0' + c;
         } else {
           document.getElementById("clock-disp").innerHTML = m + ':' + c;
+          document.getElementById("title").innerHTML = m + ':' + c;
         }
         
         
