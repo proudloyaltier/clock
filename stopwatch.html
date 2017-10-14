@@ -13,9 +13,9 @@
 	  
     <h1 id="clock-disp"></h1>
     <center>	
-	    <button onclick="Start()" class="btn-primary">Start</button>
+	    <!--<button onclick="Start()" class="btn-primary">Start</button>
 	    <button onclick="Stop()" class="btn-primary">Stop</button>
-	    <button onclick="Reset()" class="btn-primary">Reset</button>
+	    <button onclick="Reset()" class="btn-primary">Reset</button>-->
     </center>
 <center>
 <script>
@@ -80,18 +80,9 @@
             new StopWatch();
         }
 	
-	function Start() {
-	  if(1 == 1)mem[i].start();
-	}
-	function Stop() {
-	  if(1 == 1)mem[i].start();
-	}
-	function Reset() {
-	  if(1 == 1)mem[i].start();
-	}
         add(this);
     };
-    /*function Button(x,y,t){
+    function Button(x,y,t){
         var x = x, y = y, w = 60, h = 30, t = t;
         this.run = function(){
             ctx.font = 'bold 16px Arial';
@@ -120,13 +111,13 @@
             ctx.fillText(t,x+w/2,y+h/2);
         };
         add(this);
-    };*/
+    };
     (function init(){
         new StopWatch();
-        //new Button(0,50,'START');
-        //new Button(60,50,'STOP');
-        //new Button(120,50,'RESET');
-       // new Button(180,50,'CLOSE');
+        new Button(0,50,'START');
+        new Button(60,50,'STOP');
+        new Button(120,50,'RESET');
+        new Button(180,50,'CLOSE');
     })();
     (function loop(){
         var a
