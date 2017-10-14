@@ -10,14 +10,16 @@
       <li id="li-a"><a href="timer.html">Timer</a></li>
     </ul>
     <h1 id="clock-disp">0:00</h1>
-    <button onclick="SecsLeft = setTimeout(alarm, prompt('How long would you like the timer to be?', '0:00'))" class="btn-primary">Start</button>
+    <button onclick="SecsLeft = setTimeout(alarm, )" class="btn-primary">Start</button>
     <button onclick="" class="btn-primary">Stop</button>
     <button onclick="" class="btn-primary">Reset</button>
 <center>
   </body>
   <script>
-    var Mins;
-    var Secs;
+    function getTime() {
+      var time = prompt('How long would you like the timer to be?', '0:00');
+      return(prompt('How long would you like the timer to be?', '0:00'));
+    }
     
     function alarm() {
       
