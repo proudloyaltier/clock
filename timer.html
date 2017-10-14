@@ -26,10 +26,19 @@
     document.getElementById("timerDiv").style.visibility = "hidden";
     
     function startTimer() {
-      c = prompt('seconds');
       m = prompt('minutes');
+      c = prompt('seconds');
       document.getElementById("timerDiv").style.visibility = "visible";
       document.getElementById("startTimerButton").style.visibility = "hidden";
+      if(c < 10) {
+          var innerHtml1 = m + ':0' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml1;
+          document.getElementById("title").innerHTML = innerHtml1;
+      } else {
+          var innerHtml2 = m + ':' + c;
+          document.getElementById("clock-disp").innerHTML = innerHtml2;
+          document.getElementById("title").innerHTML = innerHtml2;
+      }
     }
     
     var t;
