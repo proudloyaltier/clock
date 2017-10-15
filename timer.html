@@ -29,6 +29,7 @@
     document.getElementById("timerDiv").style.visibility = "hidden";
     
     function startTimer() {
+      localStorage.message = prompt('Message');
       m = prompt('Minutes');
       c = prompt('Seconds');
       
