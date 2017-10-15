@@ -92,7 +92,15 @@
       hour1 = new Date().getHours();
     }
     setInterval(function findTime() {
-     document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+      if(new Date().getSeconds() < 10 && new Date().getMinutes() < 10) {
+        document.getElementById("clock-disp").innerHTML = hour1 + ":0" + new Date().getMinutes() + ":0" + new Date().getSeconds();
+      } else if(new Date().getMinutes() < 10) {
+        document.getElementById("clock-disp").innerHTML = hour1 + ":0" + new Date().getMinutes() + ":" + new Date().getSeconds();
+      } else if(new Date().getSeconds() < 10) {
+        document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":0" + new Date().getSeconds();
+      } else {
+        document.getElementById("clock-disp").innerHTML = hour1 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+      }
     }, 0);
   </script>
 </html>
