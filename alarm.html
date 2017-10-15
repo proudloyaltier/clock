@@ -6,6 +6,7 @@
   <body>
     <center>
       <br>
+      <h1 id="Message"></h1>
       <br>
       <button class="btn-primary" onclick="alarmOff">Stop</button>
       <audio autoplay>
@@ -63,6 +64,7 @@
     }
   </style>
   <script>
+    document.getElementById("Message").innerHTML = localStorage.message;
     function alarmOff() {
       window.location.href = "timer.html";
     }
