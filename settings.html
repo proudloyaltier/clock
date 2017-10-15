@@ -12,13 +12,15 @@
       <li id="li-a"><a href="settings.html">Settings</a></li>
     </ul>
     <h1>Settings</h1><br>
-    <div class="w3-dropdown-hover w3-center">
-      <button id="2412dropdown" class="btn-primary"></button>
-      <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
-        <li><button onclick="time24" class="w3-bar-item w3-button">24 hour time</button></li>
-        <li><button onclick="time12" class="w3-bar-item w3-button">12 hour time</button></li>
-      </div>
-    </div>
+    <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <button data-toggle="dropdown" onclick="#" id="2412dropdown" class="btn-primary"><span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><button onclick="time12">12</button></li>
+                <li><button onclick="time24">24</button></li>
+              </ul>
+            </li>
+          </ul>
   </body>
   <style>
     .btn-primary {
@@ -86,10 +88,12 @@
     
     function time12() {
       localStorage.usuk = 'us';
+      location.reload();
     }
     
     function time24() {
       localStorage.usuk = 'uk';
+      location.reload();
     }
   </script>
 </html>
