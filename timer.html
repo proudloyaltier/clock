@@ -57,10 +57,6 @@
     
     function timedCount() {
         
-        if(c == 0 && m == 0) {
-          alert('Time is up');
-          location.reload();
-        }
         
         if(c == -1) {
           c = 59;
@@ -75,6 +71,11 @@
           var innerHtml2 = m + ':' + c;
           document.getElementById("clock-disp").innerHTML = innerHtml2;
           document.getElementById("title").innerHTML = innerHtml2;
+        }
+        
+        if(c == 0 && m == 0) {
+          alert('Time is up');
+          location.reload();
         }
         
         c = c - 1;
