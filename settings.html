@@ -14,7 +14,7 @@
     <h2>Settings</h2><br>
     <!--begin 2412 dropdown-->
           <li class="dropdown">
-            <button data-toggle="dropdown" onclick="#" id="2412dropdown" class="btn-primary"><span class="caret"></span></button>
+            <button data-toggle="dropdown" onclick="#" id="2412dropdown" class="btn-primary"></button>
             <ul class="dropdown-content">
               <li><p onclick="twelveH()">12 hour time</p></li>
               <br>
@@ -22,6 +22,16 @@
             </ul>
           </li>
     <!--end 2412 dropdown-->
+    <!--begin language dropdown-->
+          <li class="dropdown">
+            <button data-toggle="dropdown" onclick="#" id="languageDropdown" class="btn-primary"></button>
+            <ul class="dropdown-content">
+              <li><p onclick="english()">English</p></li>
+              <br>
+              <li><p onclick="español()">Español</p></li>
+            </ul>
+          </li>
+    <!--end language dropdown-->
   </body>
   <style>
     .dropdown {
@@ -104,6 +114,16 @@
       document.getElementById("2412dropdown").innerHTML = '12 hour time';
     } else {
       document.getElementById("2412dropdown").innerHTML = '24 hour time';
+    }
+    
+    document.getElementById("languageDropdown").innerHTML = localStorage.language;
+    
+    function english() {
+      localStorage.language = 'English';
+    }
+    
+    function español() {
+      localStorage.language = 'Español';
     }
     
     function twelveH() {
