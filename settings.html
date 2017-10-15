@@ -16,8 +16,8 @@
             <li class="dropdown">
               <button data-toggle="dropdown" onclick="#" id="2412dropdown" class="btn-primary"><span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><button onclick="time12">12</button></li>
-                <li><button onclick="time24">24</button></li>
+                <li><button onclick="twelveH()">12</button></li>
+                <li><button onclick="twentyfourH()">24</button></li>
               </ul>
             </li>
           </ul>
@@ -86,12 +86,12 @@
       document.getElementById("2412dropdown").innerHTML = '24 hour time';
     }
     
-    function time12() {
+    function twelveH() {
       localStorage.usuk = 'us';
       location.reload();
     }
     
-    function time24() {
+    function twentyfourH() {
       localStorage.usuk = 'uk';
       location.reload();
     }
