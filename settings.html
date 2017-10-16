@@ -23,7 +23,7 @@
           </li>
     <!--end 2412 dropdown-->
          <br><br><br>
-    <!--begin language dropdown-->
+    <!--
           <li class="dropdown">
             <button data-toggle="dropdown" onclick="#" id="languageDropdown" class="btn-primary"></button>
             <ul class="dropdown-content">
@@ -32,7 +32,7 @@
               <li><p onclick="espanol()">Español</p></li>
             </ul>
           </li>
-    <!--end language dropdown-->
+   -->
   </body>
   <style>
     .dropdown {
@@ -140,4 +140,9 @@
       location.reload();
     }
   </script>
+  <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>
