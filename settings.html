@@ -111,13 +111,14 @@
     }
   </style>
   <script>
+     document.getElementById("languageDropdown").innerHTML = localStorage.language;
+    
     if(localStorage.usuk == 'us') {
       document.getElementById("2412dropdown").innerHTML = '12 hour time';
     } else {
       document.getElementById("2412dropdown").innerHTML = '24 hour time';
     }
     
-    document.getElementById("languageDropdown").innerHTML = localStorage.language;
     
     function english() {
       localStorage.language = 'English';
